@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Маркер с попапом</title>
+    <script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
+</head>
+<body>
+       Координаты перетаскиваемого маркера: <div id="location">LatLng(54.98, 82.89)</div>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <script>
+            var locationInfo = document.getElementById('location');
+            DG.then(function() {
+                var map,
+                    marker;
+
+
+
+                map = DG.map('map', {
+                    center: [54.98, 82.89],
+                    zoom: 15
+                });
+
+                marker = DG.marker([54.97, 82.88], {
+                    draggable: true
+                }).addTo(map).bindPopup('Я попап!');
+
+                marker.on('drag', function (e) {
+                    var lat = e.target._latlng.lat.toFixed(3),
+                        lng = e.target._latlng.lng.toFixed(3);
+
+                    locationInfo.innerHTML = lat + ', ' + lng;
+
+                });
+            });
+        </script>
+</body>
+</html>
