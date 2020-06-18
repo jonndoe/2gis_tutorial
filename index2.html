@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Маркер с попапом</title>
     <script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+    
 </head>
 <body>
        Координаты перетаскиваемого маркера: <div id="location">LatLng(54.98, 82.89)</div>
@@ -40,6 +48,13 @@
                 DG.control.traffic().addTo(map);
 
 
+
+                L.Routing.control({
+                  waypoints: [
+                    L.latLng(54.98, 82.89),
+                    L.latLng(54.95, 82.86)
+                  ]
+                }).addTo(map);
 
             });
         </script>
