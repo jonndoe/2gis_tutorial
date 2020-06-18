@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя карта</title>
+</head>
+<body>
+  <div id="myMapId" style="width:500px; height:400px"></div>
+</body>
+
+
+<script type="text/javascript" src="http://maps.api.2gis.ru/1.0"></script>
+
+<script type="text/javascript">
+    // Создаем обработчик загрузки страницы:
+    DG.autoload(function() {
+        // Создаем объект карты, связанный с контейнером:
+        var myMap = new DG.Map('myMapId');
+        // Устанавливаем центр карты и коэффициент масштабирования:
+        myMap.setCenter(new DG.GeoPoint(82.927810142519,55.028936234826),15);
+        // Добавляем элемент управления коэффициентом масштабирования:
+        myMap.controls.add(new DG.Controls.Zoom());
+    });
+</script>
+
+
+</html>
